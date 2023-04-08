@@ -8,6 +8,7 @@ class TStack {
  private:
     int top;
     T* stack;
+
  public:
     TStack() : top(-1), stack(new T(size)) {}
     char Top(void) {
