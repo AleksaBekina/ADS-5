@@ -5,14 +5,15 @@
 
 template<typename T, int size>
 class TStack {
-private:
+ private:
     int top;
     T* stack;
-public:
-    TStack() : top(-1), stack(new T(size)) {};
+ public:
+    TStack() : top(-1), stack(new T(size)) {}
     char Top(void) {
         if (IsEmpty()) throw std::string("Stack is EMPTY!");
-        else return stack[top];
+        else
+            return stack[top];
     }
     void Push(T value) {
         if (top == size - 1) {
@@ -31,7 +32,8 @@ public:
     }
     bool IsEmpty() {
         if (top == -1) return true;
-        else return false;
+        else
+            return false;
     }
 };
 
