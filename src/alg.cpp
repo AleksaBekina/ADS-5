@@ -5,6 +5,8 @@
 
 std::string infx2pstfx(std::string inf) {
     TStack<char, 100> stack1;
+    std::map<char, int>  priority  = {{'(', 0}, { ')', 1}, { '+', 2},
+                                      { '-', 2}, { '*', 3}, { '/', 3} };
     std::string res_str = "";
     for (int i = 0; i < inf.length(); i++) {
         if ('0' <= inf[i] && inf[i] <= '9') {
@@ -18,8 +20,10 @@ std::string infx2pstfx(std::string inf) {
                 res_str += " ";
             }
             stack1.Pop();
-        } else if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
-            while ( !stack1.IsEmpty() && priority[inf[i]] <= priority[stack1.Top()]) {
+        } else if (inf[i] == '+' || inf[i] == '-'
+                   || inf[i] == '*' || inf[i] == '/') {
+            while ( !stack1.IsEmpty()
+                   && priority[inf[i]] <= priority[stack1.Top()]) {
                 res_str += stack1.Pop();
                 res_str += " ";
             }
