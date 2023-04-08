@@ -46,7 +46,9 @@ int eval(std::string pref) {
         } else if (pref[i] == '+') {
             stack2.Push(stack2.Pop() + stack2.Pop());
         } else if (pref[i] == '-') {
-            stack2.Push((-1)*(stack2.Pop() - stack2.Pop()));
+            int num2 = stack2.Pop();
+            int num1 = stack2.Pop();
+            stack2.Push(num1 - num2);
         } else if (pref[i] == '*') {
             stack2.Push(stack2.Pop() * stack2.Pop());
         } else if (pref[i] == '/') {
